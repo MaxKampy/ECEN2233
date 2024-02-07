@@ -1,6 +1,6 @@
-module silly (input  logic a, b, cin, output logic sum, cout);
+module silly (input  logic a, b, c, output logic sum, cout);
    
-   assign sum = a ^ b ^ cin;
-   assign cout = (a & b) | (a & cin) | (b & cin);
+   assign sum = (~a & ~b & c) | (~a & b & ~c) | (a & ~b & ~c) | (a & b & c);
+   assign cout = (a & b & ~c) | (a & ~b & c) | (~a & b & c) | (a & b & c);
       
 endmodule
